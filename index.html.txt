@@ -3,31 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio / Consultoria</title>
+    <title>VASCRON | Consultoria Empresarial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Cores Base e Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0d1117;
-            color: #ffffff;
-            text-align: center;
-            padding: 50px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b0c10;
+            color: #f5f5f5;
+            line-height: 1.6;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            border: 1px solid #30363d;
+
+        /* Menu de Navegação */
+        header {
+            background-color: #000000;
+            border-bottom: 1px solid #1f2833;
             padding: 20px;
-            border-radius: 10px;
-            background-color: #161b22;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
-        h1 { color: #58a6ff; }
-        p { color: #8b949e; }
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #c5a059; /* Tom dourado baseado na logo */
+            letter-spacing: 2px;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        nav a:hover, nav a.cta-nav {
+            color: #c5a059;
+        }
+        nav a.cta-nav {
+            border: 1px solid #c5a059;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        /* Seção Hero (Apresentação Principal) */
+        .hero {
+            padding: 180px 20px 100px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(11, 12, 16, 0.85), rgba(11, 12, 16, 1)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070') no-repeat center center/cover;
+        }
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 42px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .hero h1 span {
+            color: #c5a059;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #c5a059;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .btn-gold {
+            background-color: #c5a059;
+            color: #000000;
+            padding: 15px 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-gold:hover {
+            background-color: #e5ba6b;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+        }
+
+        /* Grid de Resultados / Métricas */
+        .metrics {
+            max-width: 1200px;
+            margin: -40px auto 60px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+        .metric-card {
+            background-color: #12141c;
+            border: 1px solid #1f2833;
+            border-left: 4px solid #c5a059;
+            padding: 30px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .metric-card h3 {
+            font-size: 36px;
+            color: #c5a059;
+            margin-bottom: 5px;
+        }
+        .metric-card p {
+            font-size: 14px;
+            color: #a3a3a3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Seção de Serviços */
+        .services {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .services h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        .services h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 20px;
+            margin: 10px auto auto auto;
+            border-bottom: 2px solid #c5a059;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background-color: #12141c;
+            border: 1px solid #1f2833;
+            padding: 40px 30px;
+            border-radius: 4px;
+            transition: 0.3s;
+            text-align: left;
+        }
+        .service-card:hover {
+            border-color: #c5a059;
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            color: #a3a3a3;
+            font-size: 15px;
+        }
+
+        /* Seção de Contato */
+        .contact {
+            background-color: #000000;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid #1f2833;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .contact h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .contact p {
+            color: #a3a3a3;
+            margin-bottom: 30px;
+        }
+        .contact-form input, .contact-form textarea {
+            background-color: #12141c;
+            border: 1px solid #1f2833;
+            padding: 15px;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 4px;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #c5a059;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #000000;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #555555;
+            border-top: 1px solid #111;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bem-vindo ao meu site!</h1>
-        <p>Este site está sendo hospedado diretamente do GitHub Pages.</p>
-    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">VASCRON</div>
+            <nav>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato" class="cta-nav">Falar com Consultor</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>DOMINE O MERCADO E ALCANCE O <span>CRESCIMENTO</span> QUE SUA EMPRESA MERECE</h1>
+        <p>Estratégias de elite para médias empresas que não se contentam com a média.</p>
+        <a href="#contato" class="btn-gold">Acelere Seu Crescimento</a>
+    </section>
+
+    <section class="metrics">
+        <div class="metric-card">
+            <h3>+215%</h3>
+            <p>De Lucro Médio Gerado</p>
+        </div>
+        <div class="metric-card">
+            <h3>+190%</h3>
+            <p>De Eficiência Operacional</p>
+        </div>
+        <div class="metric-card">
+            <h3>+255%</h3>
+            <p>Em Escala de Mercado</p>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <h2>Serviços de Elite</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Estruturação de Processos</h3>
+                <p>Auditoria completa e redesenho operacional para eliminar gargalos e acelerar o ritmo de entrega da sua empresa.</p>
+            </div>
+            <div class="service-card">
+                <h3>Estratégia e Escala</h3>
+                <p>Planejamento de mercado agressivo focado no posicionamento premium e na expansão acelerada do seu faturamento.</p>
+            </div>
+            <div class="service-card">
+                <h3>Otimização de Performance</h3>
+                <p>Implementação de métricas e dashboards de alto nível para controle absoluto dos seus resultados comerciais e financeiros.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <h2>Construa Seu Legado</h2>
+        <p>Deixe seus dados para uma análise estratégica inicial sem custos.</p>
+        
+        <form class="contact-form">
+            <input type="text" placeholder="Seu Nome" required>
+            <input type="email" placeholder="Seu E-mail Corporativo" required>
+            <input type="text" placeholder="Nome da sua Empresa" required>
+            <textarea placeholder="Qual o seu maior desafio atual?" rows="4" required></textarea>
+            <button type="submit" class="btn-gold" style="border: none; cursor: pointer;">Agendar Diagnóstico</button>
+        </form>
+    </section>
+
+    <footer>
+        &copy; 2026 VASCRON Consultoria Empresarial. Todos os direitos reservados.
+    </footer>
+
 </body>
 </html>
